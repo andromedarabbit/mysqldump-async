@@ -1,0 +1,32 @@
+{
+  "name": "mysqldumpjs",
+  "description": "dump and restore scripts for MySQL",
+  "version": "0.1.0",
+   "homepage": "",
+  "author": {
+    "name": "Vault",
+    "email": "vault-sysadmins@7even.com",
+    "url": ""
+  },
+
+  "main": ".",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17"
+  },
+  "keywords": [],
+  "dependencies": {
+   	"shelljs":"latest",
+  	"sprintf":"latest",
+	"date-utils":"latest",
+  	"toolbox-js":"git://github.com/andromedarabbit/toolbox-js.git#0.0.1",
+	"mysql":"latest",
+	"colors":"latest",
+	"optimist":"latest"
+  }
+}
