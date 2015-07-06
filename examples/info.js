@@ -33,6 +33,47 @@ if(argv.version) {
 }
 
 var servers = [
+    {"name": "primary-database", "hostname": serverAddress, "port": "3306", "username": "root", "password": "PASSWORD", "database": "db_service", "tables" : {
+         "require": [
+                 "users",
+                 ],
+         "clear": [
+                "audits",
+                ]
+        },
+        "before" : path.join(dumpRootDir, "primary-database.db_service.prerequites.sql") ,
+
+    },
+    {"name": "schedule-database", "hostname": serverAddress, "port": "3306", "username": "root", "password": "PASSWORD", "database": "db_schedule", "tables" : {
+        "require": [
+                 "SCHEDULE_BLOB_TRIGGERS" ,
+                 "SCHEDULE_CALENDARS" ,
+                 "SCHEDULE_CRON_TRIGGERS" ,
+                 "SCHEDULE_FIRED_TRIGGERS" ,
+                 "SCHEDULE_JOB_DETAILS" ,
+                 "SCHEDULE_JOB_LISTENERS" ,
+                 "SCHEDULE_LOCKS" ,
+                 "SCHEDULE_PAUSED_TRIGGER_GRPS" ,
+                 "SCHEDULE_SIMPLE_TRIGGERS" ,
+                 "SCHEDULE_TRIGGERS" ,
+                 "SCHEDULE_TRIGGER_LISTENERS" ,
+                 "BATCH_JOB_EXECUTION_SEQ" ,
+                 "BATCH_JOB_SEQ" ,
+                 "BATCH_STEP_EXECUTION_SEQ" ,
+                ],
+        "clear": [
+               "SCHEDULE_SCHEDULER_STATE",
+               "BATCH_JOB_EXECUTION",
+               "BATCH_JOB_EXECUTION_CONTEXT",
+               "BATCH_JOB_EXECUTION_PARAMS",
+               "BATCH_JOB_INSTANCE",
+               "BATCH_STEP_EXECUTION",
+               "BATCH_STEP_EXECUTION_CONTEXT"
+               ]
+
+        },
+        "before" : path.join(dumpRootDir, "schedule-database.db_schedule.prerequites.sql") ,
+    },
 
 ];
 
