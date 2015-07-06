@@ -74,7 +74,6 @@ var servers = [
         },
         "before" : path.join(dumpRootDir, "schedule-database.db_schedule.prerequites.sql") ,
     },
-
 ];
 
 

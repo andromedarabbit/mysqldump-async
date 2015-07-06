@@ -2,6 +2,7 @@
 A simple wrapper to execute mysqldump asynchronously.
 
 ## Prerequites
+### `mysqldump`
 `mysqldump` should be installed first. Recommend to use [Homebrew](http://brew.sh/) to install it if you are a Mac user:
 
 ```bash
@@ -13,6 +14,13 @@ brew install mysql
 ```javascript
 var mysqlPath = "/usr/local/bin/mysql";
 var mysqldumpPath = "/usr/local/bin/mysqldump"
+```
+
+### `node` packages
+Run `npm install` on your `mysqldump-async` folder. All the node.js packages will be installed. Of course, `node` and `npm` is required. Use Homebrew to install both of `node` and `npm` if you are a Mac user:
+
+```bash
+brew install node
 ```
 
 ## Configurations
