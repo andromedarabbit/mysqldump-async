@@ -1,5 +1,5 @@
 # mysqldump-async
-A simple wrapper to execute `mysqldump` asynchronously and dump multiple tables *in parallel*. 
+[mysqldump-async](https://github.com/andromedarabbit/mysqldump-async) is the simple wrapper to execute `mysqldump` asynchronously and dump multiple tables *in parallel*. 
 
 * Not as fast as a binary dump but **super-fast** comparing to running `mysqldump` in a single command.
 * Designed to be a good tool when you want to **version control** you database schemes and records.
