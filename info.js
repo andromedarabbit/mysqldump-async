@@ -70,7 +70,7 @@ function getBeforeFile(server) {
 }
 
 function getSchemasFileName(server) {
-    return sprintf("%s%s.%s.schemas.sql", target, server["name"], server["database"]);
+    return sprintf("%s%s.%s.1.schemas.sql", target, server["name"], server["database"]);
 }
 
 function getSchemasFilePath(server) {
@@ -78,7 +78,7 @@ function getSchemasFilePath(server) {
 }
 
 function getRecordsRequiredFileName(server) {
-    return sprintf("%s%s.%s.records.required.sql", target, server["name"], server["database"]);
+    return sprintf("%s%s.%s.2.records.required.sql", target, server["name"], server["database"]);
 }
 
 function getRecordsRequiredFilePath(server) {
@@ -86,13 +86,20 @@ function getRecordsRequiredFilePath(server) {
 }
 
 function getRecordsOptionalFileName(server) {
-    return sprintf("%s%s.%s.records.optional.sql", target, server["name"], server["database"]);
+    return sprintf("%s%s.%s.3.records.optional.sql", target, server["name"], server["database"]);
 }
 
 function getRecordsOptionalFilePath(server) {
     return path.join(dumpRootDir, getRecordsOptionalFileName(server));
 }
 
+function getTriggersFileName(server) {
+  return sprintf("%s%s.%s.4.triggers.optional.sql", target, server["name"], server["database"]);
+}
+
+function getTriggersFilePath(server) {
+    return path.join(dumpRootDir, getRecordsOptionalFileName(server));
+}
 
 
 function getBackupDir() {
@@ -121,5 +128,7 @@ exports.getRecordsOptionalFilePath = getRecordsOptionalFilePath;
 exports.getSchemasFileName = getSchemasFileName;
 exports.getRecordsRequiredFileName = getRecordsRequiredFileName;
 exports.getRecordsOptionalFileName = getRecordsOptionalFileName;
+exports.getTriggersFilePath = getTriggersFilePath;
+exports.getTriggersFileName = getTriggersFileName;
 
 exports.getBackupDir = getBackupDir;
