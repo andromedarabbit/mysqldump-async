@@ -1,5 +1,5 @@
 # mysqldump-async
-[mysqldump-async](https://github.com/andromedarabbit/mysqldump-async) is the simple wrapper to execute `mysqldump` asynchronously and dump multiple tables *in parallel*. 
+[mysqldump-async](https://github.com/andromedarabbit/mysqldump-async) is the simple wrapper to execute `mysqldump` asynchronously and dump multiple tables *in parallel*.
 
 * Not as fast as a binary dump but **super-fast** comparing to running `mysqldump` in a single command.
 * Designed to be a good tool when you want to **version control** you database schemes and records.
@@ -12,12 +12,7 @@
 brew install mysql
 ```
 
-`mysqldump` binary is expected to be placed in `/usr/local/bin` and you should rewrite your `info.js` if it is located somewhere else.
-
-```javascript
-var mysqlPath = "/usr/local/bin/mysql";
-var mysqldumpPath = "/usr/local/bin/mysqldump"
-```
+`mysqldump` binary is expected to in `${PATH}`. 
 
 ### `node` packages
 Run `npm install` on your `mysqldump-async` folder. All the node.js packages will be installed. Of course, `node` and `npm` is required. Use Homebrew to install both of `node` and `npm` if you are a Mac user:

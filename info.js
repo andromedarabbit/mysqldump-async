@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require('shelljs/global');
 var shell = require('shelljs');
 var path = require('path');
 var sprintf = require('sprintf').sprintf;
@@ -11,8 +12,8 @@ var backupBeforeDrop = false;
 
 var dumpRootDir = path.join(__dirname, "dumps");
 
-var mysqlPath = "/usr/local/bin/mysql";
-var mysqldumpPath = "/usr/local/bin/mysqldump";
+var mysqlPath = which('mysql').stdout;
+var mysqldumpPath = which('mysqldump').stdout;
 
 var backupRootDir = path.join(toolbox_js.getHomeDir(), '.backup');
 
