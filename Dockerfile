@@ -7,4 +7,6 @@ RUN apt-get update && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 
+ENV PATH /usr/src/app:${PATH}
+
 VOLUME ["/usr/src/app/dumps"]
