@@ -10,3 +10,5 @@ RUN apt-get update && \
 ENV PATH /usr/src/app:${PATH}
 
 VOLUME ["/usr/src/app/dumps"]
+
+CMD ["./dump.js.command"]
