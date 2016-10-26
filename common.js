@@ -4,19 +4,19 @@ var info = require('./info.js')
 
 function executeCmdAsync(cmd, callback) {
 	console.log(cmd);
-	
+
 	var executable = shell.exec( cmd, {async:true, silent:true}, function(code, output) {
-  
+
 		if(code != 0) {
 			console.error('error occurs with an exit code ' + code);
 			console.log();
-			
+
 			console.error('Program output:');
 			console.error(output);
-			
+
 			shell.exit(code);
 		}
-		
+
 		if(callback) {
 			callback();
 		}
@@ -31,10 +31,10 @@ function executeCmdSync(cmd) {
 	var executable = shell.exec( cmd, {async:false, silent:true} );
 	var code = executable.code;
 	var output = executable.output;
-	
+
 	console.log('Exit code:', code);
 	console.log('Program output:', output);
-  
+
 	if(code != 0) {
 		console.error('error occurs: exit code ' + code);
 		shell.exit(code);
@@ -45,9 +45,9 @@ function executeQueryAsync(query, server, database, callback) {
 	if( !database ) {
 		database = "mysql";
 	}
-	
+
 	var sprintf = require('sprintf').sprintf;
-	
+
 	var cmd = sprintf(
 		"%s -h %s --port=%s -u %s --password=\"%s\" -e \"%s\" \"%s\" ",
 		info.mysqlPath,
@@ -58,7 +58,7 @@ function executeQueryAsync(query, server, database, callback) {
 		query,
 		database
 	);
-	
+
 	executeCmdAsync(cmd, callback);
 }
 
@@ -66,9 +66,9 @@ function executeQuerySync(query, server, database) {
 	if( !database ) {
 		database = "mysql";
 	}
-	
+
 	var sprintf = require('sprintf').sprintf;
-	
+
 	var cmd = sprintf(
 		"%s -h %s --port=%s -u %s --password=\"%s\" -e \"%s\" \"%s\" ",
 		info.mysqlPath,
@@ -79,7 +79,7 @@ function executeQuerySync(query, server, database) {
 		query,
 		database
 	);
-	
+
 	executeCmdSync(cmd);
 }
 
@@ -89,13 +89,13 @@ function executeSqlFileAsync(filePath, server, database, callback) {
 		console.error('File Not Found: ' + filePath);
 		shell.exit(1);
 	}
-	
+
 	if( !database ) {
 		database = server["database"];
 	}
-	
+
 	var sprintf = require('sprintf').sprintf;
-	
+
 	var cmd = sprintf(
 		"%s -h %s --port=%s -u %s --password=\"%s\" \"%s\" < \"%s\"",
 		info.mysqlPath,
@@ -106,7 +106,7 @@ function executeSqlFileAsync(filePath, server, database, callback) {
 		database,
 		filePath
 	);
-	
+
 	executeCmdAsync(cmd, callback);
 }
 
@@ -115,13 +115,13 @@ function executeSqlFileSync(filePath, server, database) {
 		console.error('File Not Found: ' + filePath);
 		shell.exit(1);
 	}
-	
+
 	if( !database ) {
 		database = server["database"];
 	}
-	
+
 	var sprintf = require('sprintf').sprintf;
-	
+
 	var cmd = sprintf(
 		"%s -h %s --port=%s -u %s --password=\"%s\" \"%s\" < \"%s\"",
 		info.mysqlPath,
@@ -132,7 +132,7 @@ function executeSqlFileSync(filePath, server, database) {
 		database,
 		filePath
 	);
-	
+
 	executeCmdSync(cmd);
 }
 
@@ -144,4 +144,3 @@ exports.executeQueryAsync = executeQueryAsync;
 exports.executeQuerySync = executeQuerySync;
 exports.executeSqlFileAsync = executeSqlFileAsync;
 exports.executeSqlFileSync = executeSqlFileSync;
-

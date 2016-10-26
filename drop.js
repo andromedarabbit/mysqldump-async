@@ -19,12 +19,12 @@ function dropDatabasesAsync() {
 	var backupDir = info.getBackupDir();
 	for(var i in servers) {
 		var server = servers[i];
-	
+
 		dropDatabaseAsync(server, backupDir);
 	}
 }
 
-function dropDatabaseAsync(server, dumpRootDir, callback) {	
+function dropDatabaseAsync(server, dumpRootDir, callback) {
 	if(info.backupBeforeDrop) {
 		dump.dumpDatabase(server, dumpRootDir);
 	}
@@ -33,7 +33,7 @@ function dropDatabaseAsync(server, dumpRootDir, callback) {
 		"drop database IF EXISTS %s;",
 		server["database"]
 	);
-	
+
 	common.executeQueryAsync(query, server, "mysql", callback);
 }
 
