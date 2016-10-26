@@ -4,24 +4,35 @@
 * Not as fast as a binary dump but **super-fast** comparing to running `mysqldump` in a single command.
 * Designed to be a good tool when you want to **version control** you database schemes and records.
 
-## Prerequites
-### `mysqldump`
+## Using Docker
+
+All the files you needs are in the directory `examples`:
+
+* `dump.sh`
+* `restore.sh`
+
+Edit the configuration file `info.js` before you run the scripts to dump or restore the database.
+
+## On Your Mac
+
+### Prerequites
+#### `mysqldump`
 `mysqldump` should be installed first. Recommend to use [Homebrew](http://brew.sh/) to install it if you are a Mac user:
 
 ```bash
 brew install mysql
 ```
 
-`mysqldump` binary is expected to in `${PATH}`. 
+`mysqldump` binary is expected to in `${PATH}`.
 
-### `node` packages
+#### `node` packages
 Run `npm install` on your `mysqldump-async` folder. All the node.js packages will be installed. Of course, `node` and `npm` is required. Use Homebrew to install both of `node` and `npm` if you are a Mac user:
 
 ```bash
 brew install node
 ```
 
-## Configurations
+### Configurations
 You can find all the configurations you need from `info.js`:
 
 ```javascript
@@ -30,8 +41,8 @@ var backupBeforeDrop = false;
 
 var dumpRootDir = path.join(__dirname, "dumps");
 
-var mysqlPath = "/usr/local/bin/mysql";
-var mysqldumpPath = "/usr/local/bin/mysqldump";
+var mysqlPath = which('mysql').stdout;
+var mysqldumpPath = which('mysqldump').stdout;
 
 var backupRootDir = path.join(toolbox_js.getHomeDir(), '.backup');
 
@@ -89,7 +100,7 @@ var servers = [
 ];
 ```
 
-## How to dump and restore the dump databases
+### How to dump and restore the dump databases
 Run `dump.js.command` to dump your databases and then you can find your dump files from `dumpRootDir` directory:
 
 ```javascript
