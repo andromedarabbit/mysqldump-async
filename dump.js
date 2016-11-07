@@ -29,7 +29,7 @@ function dumpDatabasesTo(dumpRootDir) {
 
 function dumpDatabase(server, dumpRootDir, callback) {
 	var cmd = sprintf(
-		"%s -h %s --port=%s -u %s --password=\"%s\" \"%s\" --add-locks --comments --skip-compact --default-character-set=utf8 --hex-blob --disable-keys --skip-dump-date --skip-extended-insert --lock-tables --quick --quote-names --set-charset --tz-utc",
+		"%s -h %s --port=%s -u %s --password=\"%s\" --databases \"%s\" --add-locks --comments --skip-compact --default-character-set=utf8 --hex-blob --disable-keys --skip-dump-date --skip-extended-insert --lock-tables --quick --quote-names --set-charset --tz-utc",
 		mysqldumpPath,
 		server["hostname"],
 		server["port"],
