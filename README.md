@@ -1,4 +1,7 @@
+[![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations]
+
 # mysqldump-async
+
 [mysqldump-async](https://github.com/andromedarabbit/mysqldump-async) is the simple wrapper to execute `mysqldump` asynchronously and dump multiple tables *in parallel*.
 
 * Not as fast as a binary dump but **super-fast** comparing to running `mysqldump` in a single command.
@@ -112,3 +115,6 @@ Run `restore.js.command` to restore the databases using your dump files. Any cha
 ```javascript
 var backupBeforeDrop = false;
 ```
+
+
+[paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VG4JMPL7SDBGG&lc=KR&item_name=andromedarabbit%2fmybatis%2dpagination&item_number=mybatis%2dpagination&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
