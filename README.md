@@ -1,4 +1,6 @@
 [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations]
+[![](https://images.microbadger.com/badges/image/andromedarabbit/mysqldump-async.svg)](https://microbadger.com/images/andromedarabbit/mysqldump-async "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/andromedarabbit/mysqldump-async.svg)](https://microbadger.com/images/andromedarabbit/mysqldump-async "Get your own version badge on microbadger.com")
 
 # mysqldump-async
 
