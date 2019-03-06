@@ -30,14 +30,13 @@ function executeCmdSync(cmd) {
 
 	var executable = shell.exec( cmd, {async:false, silent:true} );
 	var code = executable.code;
-	var output = executable.output;
-
-	console.log('Exit code:', code);
-	console.log('Program output:', output);
 
 	if(code != 0) {
-		console.error('error occurs: exit code ' + code);
+		console.error('\terror occurs: exit code ' + code);
+		console.error('\terror message: ' + executable.stderr);
 		shell.exit(code);
+	}else {
+		console.log('\tExit code:', code + '\n');
 	}
 }
 
